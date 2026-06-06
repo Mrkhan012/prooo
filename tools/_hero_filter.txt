@@ -1,0 +1,7 @@
+[0:v]split=2[a][b];
+[a]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,boxblur=25:2,eq=brightness=-0.22:saturation=1.05,zoompan=z='min(zoom+0.0004,1.18)':d=1:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':fps=30:s=1920x1080[bg];
+[b]scale=-1:1015[fg];
+[bg][fg]overlay=x=1215:y=(H-h)/2[base];
+[base]drawbox=x=130:y=440:w=64:h=7:color=0xff2a2a:t=fill,drawtext=fontfile=tools/fonts/segoeuib.ttf:text='HELLO I AM':fontcolor=0xff6a6a:fontsize=34:x=134:y=470:shadowcolor=black@0.6:shadowx=2:shadowy=2,drawtext=fontfile=tools/fonts/seguibl.ttf:text='AFROJ PATHAN':fontcolor=white:fontsize=118:x=128:y=518:shadowcolor=black@0.7:shadowx=3:shadowy=3,drawbox=x=132:y=672:w=80:h=6:color=0xff2a2a:t=fill,drawtext=fontfile=tools/fonts/segoeuib.ttf:text='Flutter Developer and Architect':fontcolor=0xff3b3b:fontsize=50:x=132:y=694:shadowcolor=black@0.7:shadowx=2:shadowy=2,drawtext=fontfile=tools/fonts/segoeui.ttf:text='Transforming ideas into elegant Flutter apps':fontcolor=white@0.9:fontsize=30:x=132:y=772:shadowcolor=black@0.7:shadowx=2:shadowy=2[txt];
+[1:a]showwaves=s=900x130:mode=line:colors=0xff2a2a|0xff6a6a:rate=30,format=rgba,colorchannelmixer=aa=0.9[wave];
+[txt][wave]overlay=x=128:y=900,format=yuv420p[out]

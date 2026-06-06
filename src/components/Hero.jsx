@@ -63,8 +63,8 @@ const Hero = () => {
             data-aos-delay="200"
             className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight mb-6"
           >
-            <span className="text-[#ff2a2a]">Flutter Developer</span>
-            <span className="text-white/90"> &amp; Architect</span>
+            <span className="text-[#ff2a2a]">Software</span>
+            <span className="text-white/90"> Developer</span>
           </h2>
 
           {/* Tagline */}

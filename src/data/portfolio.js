@@ -20,7 +20,7 @@ export const personal = {
   displayName: 'Afroj Pathan',
   firstName: 'Afroj',
   lastName: 'Pathan',
-  title: 'Flutter Developer & Architect',
+  title: 'Software Developer',
   location: 'Latur, India',
   email: 'afroz.w9199@gmail.com',
   phone: '+91 91562 91160',
@@ -111,6 +111,19 @@ export const experiences = [
       'Delivered secure, production-ready logistics management systems.',
     ],
     technologies: ['Flutter', 'Provider', 'REST APIs', 'Biometric Auth', 'Clean Architecture'],
+  },
+  {
+    company: 'WellnessZ',
+    role: 'Software Developer (Flutter)',
+    location: 'Remote, India',
+    duration: 'Aug 2024 - May 2025',
+    points: [
+      'Built the WellnessZ web platform and integrated it with the companion Flutter app via REST APIs.',
+      'Delivered new product features end-to-end within a cross-functional team, improving release stability.',
+      'Diagnosed and resolved data synchronization and database defects, reducing recurring production issues.',
+      'Implemented state management using Riverpod to ensure responsive user experiences.',
+    ],
+    technologies: ['Flutter', 'Flutter Web', 'Riverpod', 'REST APIs'],
   },
   {
     company: 'Incrasoft Pvt Ltd',

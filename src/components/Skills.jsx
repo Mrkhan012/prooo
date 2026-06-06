@@ -15,13 +15,13 @@ const SkillBar = ({ skill, delay }) => {
   return (
     <div ref={ref} className="mb-5">
       <div className="flex items-center justify-between mb-2">
-        <span className="flex items-center gap-2 text-sm font-bold text-gray-800">
+        <span className="flex items-center gap-2 text-sm font-bold text-white/85">
           <span className="text-lg">{skill.icon}</span>
           {skill.name}
         </span>
-        <span className="text-xs font-bold text-[#ff2a2a]">{skill.level}%</span>
+        <span className="text-xs font-bold text-[#ff6a6a]">{skill.level}%</span>
       </div>
-      <div className="w-full h-2.5 rounded-full bg-gray-200 overflow-hidden">
+      <div className="w-full h-2.5 rounded-full bg-white/10 overflow-hidden">
         <motion.div
           className="h-full rounded-full bg-gradient-to-r from-[#ff2a2a] to-[#ff6a6a]"
           initial={{ width: 0 }}
@@ -37,19 +37,24 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="bg-white pt-24 pb-28 px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]"
+      className="bg-[#0a0a0a] py-24 md:py-28 px-6 md:px-12 w-full relative overflow-hidden font-sans"
     >
-      <div className="max-w-6xl mx-auto">
+      {/* subtle grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none" />
+      {/* red glow accent */}
+      <div className="absolute top-1/3 -right-24 w-96 h-96 bg-[#ff2a2a]/15 rounded-full blur-[130px] pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto relative z-10">
 
         {/* Header */}
         <div data-aos="fade-up" className="mb-16 text-center">
-          <div className="inline-block border border-gray-300 rounded-full px-5 py-1.5 text-sm text-gray-600 font-bold mb-6 shadow-sm bg-white">
+          <div className="inline-block border border-white/20 rounded-full px-5 py-1.5 text-sm text-white/70 font-bold mb-6 bg-white/5">
             What I work with
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight">
             Skills & Expertise
           </h2>
-          <p className="text-gray-500 text-base md:text-lg max-w-xl mx-auto font-medium leading-relaxed mt-5">
+          <p className="text-white/60 text-base md:text-lg max-w-xl mx-auto font-medium leading-relaxed mt-5">
             A toolkit refined over 3+ years of building production-grade,
             cross-platform applications.
           </p>
@@ -62,9 +67,9 @@ const Skills = () => {
               key={category}
               data-aos="fade-up"
               data-aos-delay={idx * 80}
-              className="bg-white rounded-3xl border border-gray-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] p-7 md:p-8 hover:shadow-[0_20px_50px_rgba(255,42,42,0.12)] transition-shadow duration-500"
+              className="bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 p-7 md:p-8 hover:border-[#ff2a2a]/40 hover:bg-white/[0.07] transition-all duration-500"
             >
-              <h3 className="text-lg font-black text-gray-900 mb-6 flex items-center gap-2">
+              <h3 className="text-lg font-black text-white mb-6 flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#ff2a2a]"></span>
                 {category}
               </h3>

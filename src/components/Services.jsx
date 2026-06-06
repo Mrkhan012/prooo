@@ -31,28 +31,28 @@ const TagCard = ({ number, title, text, className, aosDelay, aosType, pathLength
       data-aos={aosType || "fade-up"} 
       data-aos-delay={aosDelay}
       className={`w-72 sm:w-80 rounded-[2rem] p-2 relative flex flex-col items-center hover:scale-[1.02] transition-all duration-700 z-10 ${className} ${
-        isActive ? 'bg-[#ff2a2a] border-red-400 shadow-[0_20px_50px_rgba(255,42,42,0.4)]' : 'bg-white border border-gray-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]'
+        isActive ? 'bg-[#ff2a2a] border border-red-400 shadow-[0_20px_50px_rgba(255,42,42,0.45)]' : 'bg-white/5 backdrop-blur-sm border border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.4)]'
       }`}
     >
       {/* The hole punch */}
-      <div className="w-5 h-5 bg-gradient-to-br from-gray-300 to-gray-100 rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)] absolute top-4 border border-gray-300 z-10 flex items-center justify-center">
-        <div className="w-2 h-2 bg-gray-800 rounded-full opacity-20"></div>
+      <div className="w-5 h-5 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] absolute top-4 border border-gray-500 z-10 flex items-center justify-center">
+        <div className="w-2 h-2 bg-black rounded-full opacity-40"></div>
       </div>
-      
+
       {/* Inner container */}
       <div className={`w-full h-full rounded-[1.5rem] mt-8 p-8 flex flex-col min-h-[220px] transition-colors duration-700 ${
-        isActive ? 'bg-red-700/50' : 'bg-[#f4f4f4]'
+        isActive ? 'bg-red-700/40' : 'bg-white/[0.03]'
       }`}>
         <span className={`text-xl font-bold mb-2 font-serif italic transition-colors duration-700 ${
-          isActive ? 'text-red-200' : 'text-gray-400'
+          isActive ? 'text-red-200' : 'text-white/40'
         }`}>{number}</span>
-        
+
         <h3 className={`text-2xl font-black mb-3 tracking-tight transition-colors duration-700 ${
-          isActive ? 'text-white' : 'text-gray-900'
+          isActive ? 'text-white' : 'text-white'
         }`}>{title}</h3>
-        
+
         <p className={`text-sm leading-relaxed font-medium transition-colors duration-700 ${
-          isActive ? 'text-red-100' : 'text-gray-500'
+          isActive ? 'text-red-100' : 'text-white/60'
         }`}>
           {text}
         </p>
@@ -75,24 +75,24 @@ const Services = () => {
     <section 
       id="services"
       ref={containerRef}
-      className="bg-white pt-24 pb-32 px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]"
+      className="bg-[#0a0a0a] py-24 md:py-28 px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:80px_80px]"
     >
       <div className="max-w-6xl mx-auto relative md:h-[1350px]">
         
         {/* Header Content */}
         <div data-aos="fade-up" className="md:absolute top-10 left-0 md:w-[450px] z-20 mb-16 md:mb-0">
-          <div className="inline-block border border-gray-300 rounded-full px-5 py-1.5 text-sm text-gray-600 font-bold mb-8 shadow-sm bg-white">
+          <div className="inline-block border border-white/20 rounded-full px-5 py-1.5 text-sm text-white/70 font-bold mb-8 bg-white/5">
             How I work
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] mb-6 tracking-tight relative">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight relative">
             From idea to production — my development process
             {/* Hand-drawn arrow */}
-            <svg className="absolute -bottom-10 right-10 w-12 h-12 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="absolute -bottom-10 right-10 w-12 h-12 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" className="hidden" />
               <path d="M4 4 Q 10 10 15 15 M 15 15 L 10 15 M 15 15 L 15 10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </h2>
-          <p className="text-gray-500 text-base md:text-lg max-w-sm font-medium leading-relaxed">
+          <p className="text-white/60 text-base md:text-lg max-w-sm font-medium leading-relaxed">
             I follow a structured, creative and highly technical approach to turn your ideas into robust, production-ready applications.
           </p>
         </div>
@@ -107,7 +107,7 @@ const Services = () => {
           <path 
             d="M 650,200 C 400,300 200,400 300,600 C 400,800 750,750 700,950 C 650,1150 400,1150 300,1200" 
             fill="none" 
-            stroke="#cbd5e1" 
+            stroke="#ffffff20"
             strokeWidth="2" 
             strokeDasharray="8 10" 
           />
@@ -127,7 +127,7 @@ const Services = () => {
           <path 
             d="M 650,200 C 400,300 200,400 300,600 C 400,800 750,750 700,950 C 650,1150 400,1150 300,1200" 
             fill="none" 
-            stroke="black" 
+            stroke="#ff2a2a"
             strokeWidth="2" 
             strokeDasharray="8 10" 
             mask="url(#path-mask)"
@@ -144,7 +144,7 @@ const Services = () => {
           <path 
             d="M 2,0 L 2,100" 
             fill="none" 
-            stroke="#cbd5e1" 
+            stroke="#ffffff20"
             strokeWidth="4" 
             strokeDasharray="4 6" 
             vectorEffect="non-scaling-stroke"
@@ -162,7 +162,7 @@ const Services = () => {
           <path 
             d="M 2,0 L 2,100" 
             fill="none" 
-            stroke="black" 
+            stroke="#ff2a2a"
             strokeWidth="4" 
             strokeDasharray="4 6" 
             mask="url(#path-mask-mobile)"
@@ -221,7 +221,7 @@ const Services = () => {
           <div 
             data-aos="fade-in" 
             data-aos-delay="600"
-            className="hidden md:block absolute top-[1250px] left-[60%] font-['Caveat',cursive] text-3xl text-gray-600 rotate-6"
+            className="hidden md:block absolute top-[1250px] left-[60%] font-['Caveat',cursive] text-3xl text-[#ff6a6a] rotate-6"
           >
             Ready to be delivered!
           </div>

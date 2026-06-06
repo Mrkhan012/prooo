@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { personal, hero } from '../data/portfolio';
 // Adjusted import path for the video
 import heroVideo from '../assets/hero video/Developer_introduces_self_and_sk…_202606051918.mp4';
 
@@ -31,8 +32,13 @@ const Hero = () => {
     }
   };
 
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black">
+    <section id="home" className="relative w-full h-screen overflow-hidden bg-black">
       {/* Background Video */}
       <video
         ref={videoRef}
@@ -50,36 +56,51 @@ const Hero = () => {
         
         {/* Left Side: Text and Buttons */}
         <div className="flex flex-col items-start text-left max-w-2xl w-full">
-          {/* Main Heading */}
-          <h1 
+          {/* Greeting */}
+          <p
             data-aos="fade-up"
+            className="text-[#ff2a2a] text-sm md:text-base font-bold tracking-[0.2em] uppercase mb-3 drop-shadow"
+          >
+            Hi, I’m {personal.displayName}
+          </p>
+
+          {/* Main Heading */}
+          <h1
+            data-aos="fade-up"
+            data-aos-delay="100"
             className="text-white text-3xl md:text-5xl font-bold mb-4 tracking-tight"
           >
-            Hi, I’m a <br /> <span className="text-transparent [-webkit-text-stroke:1.5px_black]">Full Stack Developer</span>
+            {personal.title.split('&')[0].trim()} <br /> <span className="text-transparent [-webkit-text-stroke:1.5px_black]">& {personal.title.split('&')[1].trim()}</span>
           </h1>
 
           {/* Subheading */}
-          <p 
+          <p
             data-aos="fade-up"
             data-aos-delay="200"
             className="text-white text-sm md:text-lg font-semibold mb-8 max-w-md drop-shadow-md"
           >
-            I build fast, scalable and modern web applications using React, Node.js and Tailwind CSS.
+            {hero.subtitle}
           </p>
 
           {/* Buttons */}
-          <div 
+          <div
             data-aos="fade-up"
             data-aos-delay="400"
             className="flex flex-row flex-wrap items-center gap-3 w-full"
           >
             {/* Primary Button */}
-            <button className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 shadow-md">
+            <button
+              onClick={() => scrollTo('projects')}
+              className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 shadow-md"
+            >
               View My Work
             </button>
-            
+
             {/* Secondary Button - Glassmorphism style */}
-            <button className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-black/40 border border-white text-white font-semibold hover:bg-black/60 transition-all duration-300 backdrop-blur-md">
+            <button
+              onClick={() => scrollTo('contact')}
+              className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-black/40 border border-white text-white font-semibold hover:bg-black/60 transition-all duration-300 backdrop-blur-md"
+            >
               Contact Me
             </button>
           </div>

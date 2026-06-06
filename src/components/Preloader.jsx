@@ -33,17 +33,17 @@ const Preloader = () => {
           >
             {/* Background text (empty state) */}
             <div className="text-red-900/30">
-              Leeshark<span className="text-red-900/30">.</span>
+              {personal.displayName}<span className="text-red-900/30">.</span>
             </div>
 
             {/* Foreground text (water fill state) */}
-            <motion.div 
+            <motion.div
               className="absolute top-0 left-0 text-white overflow-hidden whitespace-nowrap"
               initial={{ clipPath: 'inset(100% 0 0 0)' }}
               animate={{ clipPath: 'inset(0% 0 0 0)' }}
               transition={{ duration: 1.6, ease: "easeInOut", delay: 0.2 }}
             >
-              Leeshark<span className="text-black">.</span>
+              {personal.displayName}<span className="text-black">.</span>
             </motion.div>
           </motion.div>
 

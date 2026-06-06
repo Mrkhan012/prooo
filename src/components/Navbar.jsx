@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { personal } from '../data/portfolio';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +18,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
+  const navLinks = ['Home', 'About', 'Skills', 'Experience', 'Projects', 'Contact'];
 
   return (
     <nav 
@@ -33,8 +34,8 @@ const Navbar = () => {
         
         {/* Left Side: Logo/Name */}
         <div className="flex items-center">
-          <a href="#" className="text-white text-2xl font-black tracking-tight">
-            Leeshark<span className="text-red-500">.</span>
+          <a href="#home" className="text-white text-2xl font-black tracking-tight">
+            {personal.displayName}<span className="text-red-500">.</span>
           </a>
         </div>
 

@@ -5,41 +5,54 @@ import { skills } from '../data/portfolio';
 const R = 42;
 const C = 2 * Math.PI * R; // circumference of the progress ring
 
-// A small circular skill card with an animated progress ring.
+// A glowing glass "skill coin" with an animated gradient progress ring.
 const SkillCircle = ({ skill, index }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-40px' });
   const offset = C * (1 - skill.level / 100);
+  const delay = (index % 6) * 0.1; // each coin in the row appears after the previous one
 
   return (
-    <div ref={ref} className="flex flex-col items-center group">
-      <div className="relative w-20 h-20 md:w-24 md:h-24 transition-transform duration-300 group-hover:scale-110">
-        <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r={R} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="6" />
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, scale: 0.5, y: 28 }}
+      animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, ease: [0.34, 1.56, 0.64, 1], delay }}
+      className="flex flex-col items-center group"
+    >
+      <div className="relative w-24 h-24 md:w-28 md:h-28">
+        {/* soft glow */}
+        <div className="absolute inset-1 rounded-full bg-[#8b5cf6]/15 blur-xl group-hover:bg-[#d946ef]/35 transition-all duration-500" />
+
+        {/* progress ring */}
+        <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r={R} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="7" />
           <motion.circle
             cx="50"
             cy="50"
             r={R}
             fill="none"
             stroke="url(#skillGrad)"
-            strokeWidth="6"
+            strokeWidth="7"
             strokeLinecap="round"
             strokeDasharray={C}
             initial={{ strokeDashoffset: C }}
             animate={inView ? { strokeDashoffset: offset } : { strokeDashoffset: C }}
-            transition={{ duration: 1.1, ease: 'easeOut', delay: (index % 6) * 0.06 }}
+            transition={{ duration: 1.1, ease: 'easeOut', delay: delay + 0.25 }}
           />
         </svg>
-        {/* center icon */}
-        <div className="absolute inset-0 flex items-center justify-center text-2xl md:text-3xl">
+
+        {/* frosted glass center holding the icon */}
+        <div className="absolute inset-[16%] rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-sm flex items-center justify-center text-2xl md:text-3xl shadow-[inset_0_2px_10px_rgba(0,0,0,0.45)] transition-transform duration-500 group-hover:scale-110">
           {skill.icon}
         </div>
       </div>
-      <p className="mt-2.5 text-white/85 text-xs font-bold text-center leading-tight max-w-[6rem]">
+
+      <p className="mt-3 text-white/90 text-xs md:text-sm font-bold text-center leading-tight max-w-[7rem]">
         {skill.name}
       </p>
-      <p className="text-[#ff6a6a] text-[10px] font-bold">{skill.level}%</p>
-    </div>
+      <p className="text-[#d8b4fe] text-[11px] font-bold mt-0.5">{skill.level}%</p>
+    </motion.div>
   );
 };
 
@@ -51,15 +64,17 @@ const Skills = () => {
     >
       {/* subtle grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none" />
-      {/* red glow accent */}
-      <div className="absolute top-1/3 -right-24 w-96 h-96 bg-[#ff2a2a]/15 rounded-full blur-[130px] pointer-events-none" />
+      {/* violet glow accents */}
+      <div className="absolute top-1/4 -right-24 w-96 h-96 bg-[#8b5cf6]/20 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 -left-24 w-96 h-96 bg-[#d946ef]/15 rounded-full blur-[150px] pointer-events-none" />
 
       {/* gradient definition for the rings */}
       <svg className="absolute w-0 h-0" aria-hidden="true">
         <defs>
           <linearGradient id="skillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#ff2a2a" />
-            <stop offset="100%" stopColor="#ff8a8a" />
+            <stop offset="0%" stopColor="#8b5cf6" />
+            <stop offset="55%" stopColor="#a855f7" />
+            <stop offset="100%" stopColor="#d946ef" />
           </linearGradient>
         </defs>
       </svg>
@@ -80,7 +95,7 @@ const Skills = () => {
         </div>
 
         {/* Circle grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-y-10 gap-x-4 justify-items-center">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-y-12 gap-x-4 justify-items-center">
           {skills.map((skill, i) => (
             <SkillCircle key={skill.name} skill={skill} index={i} />
           ))}

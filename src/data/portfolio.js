@@ -16,9 +16,9 @@ import healtho from '../assets/projects/healtho.png';
 
 // ---------- Personal Information ----------
 export const personal = {
-  fullName: 'Afaroj Khan Pathan',
-  displayName: 'Afroj Pathan',
-  firstName: 'Afroj',
+  fullName: 'Afarojkha Pathan',
+  displayName: 'Afarojkha Pathan',
+  firstName: 'Afarojkha',
   lastName: 'Pathan',
   title: 'Software Developer',
   location: 'Latur, India',

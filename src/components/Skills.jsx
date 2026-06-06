@@ -22,7 +22,7 @@ const SkillCircle = ({ skill, index }) => {
     >
       <div className="relative w-24 h-24 md:w-28 md:h-28">
         {/* soft glow */}
-        <div className="absolute inset-1 rounded-full bg-[#8b5cf6]/15 blur-xl group-hover:bg-[#d946ef]/35 transition-all duration-500" />
+        <div className="absolute inset-1 rounded-full bg-[#ff2a2a]/15 blur-xl group-hover:bg-[#ff2a2a]/40 transition-all duration-500" />
 
         {/* progress ring */}
         <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
@@ -51,7 +51,7 @@ const SkillCircle = ({ skill, index }) => {
       <p className="mt-3 text-white/90 text-xs md:text-sm font-bold text-center leading-tight max-w-[7rem]">
         {skill.name}
       </p>
-      <p className="text-[#d8b4fe] text-[11px] font-bold mt-0.5">{skill.level}%</p>
+      <p className="text-[#ff6a6a] text-[11px] font-bold mt-0.5">{skill.level}%</p>
     </motion.div>
   );
 };
@@ -64,9 +64,9 @@ const Skills = () => {
     >
       {/* subtle grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none" />
-      {/* violet glow accents */}
-      <div className="absolute top-1/4 -right-24 w-96 h-96 bg-[#8b5cf6]/20 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 -left-24 w-96 h-96 bg-[#d946ef]/15 rounded-full blur-[150px] pointer-events-none" />
+      {/* red glow accents */}
+      <div className="absolute top-1/4 -right-24 w-96 h-96 bg-[#ff2a2a]/20 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 -left-24 w-96 h-96 bg-[#ff2a2a]/15 rounded-full blur-[150px] pointer-events-none" />
 
       {/* gradient definition for the rings */}
       <svg className="absolute w-0 h-0" aria-hidden="true">

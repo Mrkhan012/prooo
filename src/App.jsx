@@ -10,6 +10,7 @@ import Services from './components/Services'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Chatbot from './components/Chatbot'
+import Certifications from './components/Certifications'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <About />
       <Skills />
       <Experience />
+      <Certifications />
       <Projects />
       <Services />
       <Contact />

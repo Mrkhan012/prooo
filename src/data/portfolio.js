@@ -35,6 +35,10 @@ export const socials = {
   whatsapp: 'https://wa.me/919156291160',
 };
 
+// ---------- Resume summary (used by tools/generate-resume-pdf.js) ----------
+export const resumeSummary =
+  'Software Engineer with 3+ years of experience building cross-platform mobile, web, and desktop applications using Flutter, FastAPI, and PostgreSQL. Experienced in REST API integration, CI/CD automation, scalable application architecture, and multi-environment deployments. Built production applications across railway operations, healthcare, POS, and wellness domains. Skilled in Flutter state management, backend development, and performance optimization in Agile development teams.';
+
 // ---------- Hero Section ----------
 export const hero = {
   tagline: 'Architecting Digital Ecosystems',
@@ -148,18 +152,54 @@ export const experiences = [
 export const education = [
   {
     institution: 'Sandipani Technical Campus, Latur',
-    degree: 'B.Tech in Mechanical Engineering',
+    degree: 'B.Tech in Computer Science & Engineering',
     duration: 'July 2019 - August 2022',
   },
   {
-    institution: 'PLGPL',
-    degree: 'Diploma in Mechanical Engineering',
+    institution: 'Government Polytechnic, Latur',
+    degree: 'Diploma in Computer Engineering',
     duration: 'June 2016 - June 2019',
   },
   {
     institution: 'Ahilyadevi High School',
     degree: 'SSC',
     duration: 'Completed June 2016',
+  },
+];
+
+// ---------- Certifications (Forage Job Simulations) ----------
+export const certifications = [
+  {
+    title: 'Tata — Data Visualisation: Empowering Business with Effective Insights',
+    issuer: 'Forage (in partnership with Tata Consultancy Services)',
+    issued: 'July 2023',
+    credentialId: '3e4s3BLTkoQYw8znZ',
+    url: 'https://www.theforage.com/completion-certificates/Tata/N8Muuhk6XsXgMTeu2_Tata%20Consultancy%20Services_E8H3AkKXQn3ykq29K_1689837268360_completion_certificate.pdf',
+    company: 'Tata',
+  },
+  {
+    title: 'Tata — ESG Job Simulation',
+    issuer: 'Forage (in partnership with Tata Consultancy Services)',
+    issued: 'July 2023',
+    credentialId: 'QbNuAyvbmqdECPaLR',
+    url: 'https://www.theforage.com/completion-certificates/Tata/N8Muuhk6XsXgMTeu2_Tata%20Consultancy%20Services_E8H3AkKXQn3ykq29K_1689837268360_completion_certificate.pdf',
+    company: 'Tata',
+  },
+  {
+    title: 'Infosys — Power Programmer Job Simulation',
+    issuer: 'Forage (in partnership with Infosys)',
+    issued: 'April 2022',
+    credentialId: 'FW93vd2ZwZ62uqggv',
+    url: 'https://www.theforage.com/completion-certificates/Infosys/qyS5w2xfLoFEKAFpH_Infosys_E8H3AkKXQn3ykq29K_1650308829878_completion_certificate.pdf',
+    company: 'Infosys',
+  },
+  {
+    title: 'Accenture Nordics — Developer Job Simulation',
+    issuer: 'Forage (in partnership with Accenture Nordics)',
+    issued: 'February 2022',
+    credentialId: 'yEhtXmjydK8tJHn5Z',
+    url: 'https://www.theforage.com/completion-certificates/Accenture%20Nordics/yEhtXmjydK8tJHn5Z_Accenture%20Nordics_E8H3AkKXQn3ykq29K_1644844432480_completion_certificate.pdf',
+    company: 'Accenture',
   },
 ];
 

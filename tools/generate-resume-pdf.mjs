@@ -5,20 +5,43 @@
 //  Reads the same data file the React app uses, then writes a
 //  single-file A4 PDF with the same dark/red theme as the site.
 //  Output: public/resume-afarojkha-pathan.pdf
-//  Run:    node tools/generate-resume-pdf.js
+//  Run:    node tools/generate-resume-pdf.mjs
 // ===================================================================
 
-const PDFDocument = require('pdfkit');
-const fs = require('fs');
-const path = require('path');
+import PDFDocument from 'pdfkit';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
 
-// Pull the same data the site uses.
-// We import the JS file directly — Vite will not run during this.
-const portfolio = require(path.join('..', 'src', 'data', 'portfolio.js'));
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// Resolve the repo root no matter where the script is invoked from
 const REPO = path.resolve(__dirname, '..');
 const OUT = path.join(REPO, 'public', 'resume-afarojkha-pathan.pdf');
+
+// The data file uses `import x from '...png'` which Node ESM cannot
+// resolve. We collect the imported image names first, then nullify
+// their references and strip the import lines, then rewrite the
+// named exports to CommonJS `module.exports.xxx = ...` so we can
+// `require()` it via a shim.
+const dataPath = path.join(REPO, 'src', 'data', 'portfolio.js');
+const rawSource = fs.readFileSync(dataPath, 'utf8');
+const imageImports = [...rawSource.matchAll(/^import\s+(\w+)\s+from\s+['"][^'"]+\.(png|jpe?g|svg|webp|mp4)['"];?$/gm)];
+let dataSource = rawSource;
+// Nullify references to the image variables anywhere in the file
+for (const m of imageImports) {
+  dataSource = dataSource.replace(new RegExp(`\\b${m[1]}\\b`, 'g'), 'null');
+}
+// Strip the import lines (now that we've captured the names)
+dataSource = dataSource.replace(/^import .+ from .+;$/gm, '// (image import stripped for PDF)');
+// Rewrite ESM named exports to CommonJS
+dataSource = dataSource.replace(/^export const (\w+)/gm, 'module.exports.$1');
+
+const shimDir = path.join(REPO, '.pdf-build-tmp');
+if (!fs.existsSync(shimDir)) fs.mkdirSync(shimDir, { recursive: true });
+const shimPath = path.join(shimDir, 'portfolio-data.cjs');
+fs.writeFileSync(shimPath, dataSource);
+const portfolio = createRequire(import.meta.url)(shimPath);
 
 // ------------------------------------------------------------------
 // Theme

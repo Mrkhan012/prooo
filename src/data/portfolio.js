@@ -325,4 +325,32 @@ export const projects = [
       'Healthcare workflows',
     ],
   },
+  {
+    title: 'Crow',
+    subtitle: 'React Native — Personal Project',
+    description:
+      'A personal React Native application currently in development. Exploring cross-platform mobile development beyond Flutter with React Native to broaden expertise and deliver a polished, production-ready mobile experience.',
+    technologies: ['React Native', 'JavaScript', 'Mobile Development'],
+    category: 'Personal',
+    status: 'In Development',
+    highlights: [
+      'Built with React Native',
+      'Expanding into cross-platform mobile',
+      'Personal project, actively developed',
+    ],
+  },
+  {
+    title: 'Jazzy Breathing',
+    subtitle: 'React Native — Personal Project',
+    description:
+      'A breathing and wellness companion app built with React Native. Currently in development as a personal project, blending mindful design with practical mobile UX to help users with guided breathing exercises.',
+    technologies: ['React Native', 'JavaScript', 'Wellness', 'Mobile Development'],
+    category: 'Personal',
+    status: 'In Development',
+    highlights: [
+      'Built with React Native',
+      'Guided breathing exercises',
+      'Personal project, actively developed',
+    ],
+  },
 ];

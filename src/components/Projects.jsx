@@ -39,16 +39,27 @@ const ProjectRow = ({ project, side }) => {
           }`}
         >
           {/* Image */}
-          <div className="relative w-full aspect-[16/10] overflow-hidden bg-black/40">
-            <img
-              src={project.image}
-              alt={project.title}
-              loading="lazy"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
+            <div className="relative w-full aspect-[16/10] overflow-hidden bg-black/40">
+            {project.image ? (
+              <img
+                src={project.image}
+                alt={project.title}
+                loading="lazy"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-white/40">
+                <span className="text-6xl">🚧</span>
+              </div>
+            )}
             <span className={`absolute top-4 left-4 text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md ${categoryStyles[project.category] || 'bg-white/15 text-white'}`}>
               {project.category}
             </span>
+            {project.status && (
+              <span className="absolute top-4 right-4 text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md bg-[#ff2a2a]/80 text-white">
+                {project.status}
+              </span>
+            )}
           </div>
 
           {/* Body */}

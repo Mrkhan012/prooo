@@ -211,6 +211,9 @@ export const projects = [
   {
     title: 'Wagon Eye CCTV',
     subtitle: 'Railway Station Surveillance Platform',
+    domain: 'Railway',
+    featured: true,
+    metrics: '24/7 Malgadi Surveillance',
     description:
       'Enterprise-grade React web app for real-time CCTV surveillance across railway stations, enabling complete train (Malgadi) tracking. Streams live & recorded feeds, supports video playback with smooth pagination, full PDF report generation and one-click video download, with role-based access and high-performance lazy video loading for 24/7 monitoring.',
     technologies: ['React', 'JavaScript', 'REST APIs', 'PDF Generation', 'Video Streaming'],
@@ -226,6 +229,9 @@ export const projects = [
   {
     title: 'RH POS — Restaurant POS Application',
     subtitle: 'Restaurant POS & Terminal Ecosystem',
+    domain: 'POS & Hospitality',
+    featured: true,
+    metrics: 'LAN Socket.IO & Offline Sync',
     description:
       'Built the RH POS terminal ecosystem in Flutter: a Windows POS terminal, an Android captain/waiter app, and a Kitchen Display System (KDS) app. Architected an offline-first terminal and captain app with ObjectBox local persistence, syncing orders in real time over LAN via Socket.IO and custom TCP/UDP channels across the terminal, captain devices and KDS. Implemented Bluetooth thermal bill/KOT printing with PDF generation and pre-warmed Google Font caching to remove first-print latency, plus REST integration via Dio and sales analytics dashboards using fl_chart. Added secure cloud database backup/restore using AWS S3-compatible storage with HMAC-SHA256 signed requests.',
     technologies: [
@@ -252,6 +258,9 @@ export const projects = [
   {
     title: 'RH POS — Web Back-Office',
     subtitle: 'Restaurant Admin & Customer Ordering Web App',
+    domain: 'POS & Hospitality',
+    featured: true,
+    metrics: '14 Modules · Multi-lingual RTL',
     description:
       'Built the companion React + Vite web back-office for RH POS, spanning 14 management modules (live orders, billing, menu, inventory, reports, tables, users). Implemented JWT auth with proactive token refresh and role/permission-based access control, plus English/Hindi/Arabic (RTL) multilingual support. Developed a companion customer-facing ordering website integrated with the back-office.',
     technologies: ['React.js', 'Vite', 'JWT', 'i18next', 'REST APIs', 'RBAC'],
@@ -267,6 +276,9 @@ export const projects = [
   {
     title: 'DFCC Unusual — Railway Field Inspection App',
     subtitle: 'Railway Defect Reporting Platform · Sarva Suvidhaen',
+    domain: 'Railway',
+    featured: true,
+    metrics: 'Offline Queue & CI/CD Deploy',
     description:
       'Built a cross-platform Flutter app (Android + Web) for DFCCIL field engineers to report railway defects (hot axles, brake binding, wheel defects) with photo/video evidence and GPS tagging, as part of the railway applications portfolio at Sarva Suvidhaen Pvt Ltd. Architected an offline-first submission workflow with a persistent photo-upload queue that survives app restarts and auto-retries on reconnection, ensuring zero data loss in low-connectivity environments. Implemented JWT auth with transparent token refresh via custom Dio interceptors, and optimistic UI updates for a seamless user experience during network delays. Automated CI/CD pipelines using GitHub Actions to deploy web builds to Netlify and Android App Bundles to the Play Store production track on every main branch push.',
     technologies: ['Flutter', 'Dart', 'BLoC', 'Dio', 'GitHub Actions', 'Offline-First'],
@@ -282,6 +294,8 @@ export const projects = [
   {
     title: 'RailOps App',
     subtitle: 'Railway Operations Management',
+    domain: 'Railway',
+    metrics: 'Biometrics & Code Leadership',
     description:
       'Production-grade railway operations app using Provider and Clean Architecture. Integrated RESTful APIs, robust error handling, SMS autofill, biometric login (fingerprint & face) and secure data flows. Led team tasks and ensured code quality.',
     technologies: ['Flutter', 'Provider', 'REST APIs', 'Biometric Auth', 'Team Lead'],
@@ -297,6 +311,8 @@ export const projects = [
   {
     title: 'CoachSathi App',
     subtitle: 'Train Service Staff Management',
+    domain: 'Railway',
+    metrics: 'Task Workflows & Attendance',
     description:
       'App for coach attendants and train service staff with notification-based task updates, attendance workflows and service-check modules — built with Provider, Clean Architecture and RESTful APIs with role-based permissions.',
     technologies: ['Flutter', 'Provider', 'Push Notifications', 'REST APIs', 'RBAC'],
@@ -312,6 +328,9 @@ export const projects = [
   {
     title: 'Nexus AI Voice Assistant',
     subtitle: 'Offline-Capable Desktop Voice Assistant',
+    domain: 'AI & Python',
+    featured: true,
+    metrics: 'Offline Intent Model & TTS',
     description:
       'Offline-capable desktop voice assistant that classifies spoken commands using a trained scikit-learn + NLTK intent model. Engineered a modular architecture with speech-to-text listening, text-to-speech responses, and an action executor for application launches, system controls, and automated queries.',
     technologies: ['Python', 'Machine Learning', 'scikit-learn', 'NLTK', 'Speech Recognition'],
@@ -327,6 +346,8 @@ export const projects = [
   {
     title: 'VPN App',
     subtitle: 'Multi-Country VPN Client',
+    domain: 'Mobile Utilities',
+    metrics: '19+ Server Locations',
     description:
       'VPN app with GetX state management and Hive local storage. Features 19+ countries, real-time connection status, search functionality and integrated Google Mobile Ads, using a free public VPN API for server data.',
     technologies: ['Flutter', 'GetX', 'Hive', 'HTTP', 'Google Ads'],
@@ -342,6 +363,8 @@ export const projects = [
   {
     title: 'WellnessZ Platform',
     subtitle: 'Health & Fitness Tracking',
+    domain: 'Health & Fitness',
+    metrics: 'Mobile + Web Parity',
     description:
       'Comprehensive wellness platform for health tracking with mobile and web versions. Responsive web app with health tracking, personalized recommendations and user-friendly dashboards, ensuring feature parity across platforms.',
     technologies: ['Flutter', 'Flutter Web', 'Responsive Design', 'Firebase', 'REST APIs'],
@@ -357,6 +380,8 @@ export const projects = [
   {
     title: 'ABC Coaching App',
     subtitle: 'Coaching Services Management',
+    domain: 'Education & FinTech',
+    metrics: 'Cashfree Payment Gateway',
     description:
       'Platform for managing student coaching services with Riverpod state management. Integrated the Cashfree payment gateway for secure transactions, with user-friendly access to courses and schedules.',
     technologies: ['Flutter', 'Riverpod', 'Cashfree', 'Payment Gateway', 'REST APIs'],
@@ -372,6 +397,8 @@ export const projects = [
   {
     title: 'Healtho App',
     subtitle: 'Healthcare Appointment Booking',
+    domain: 'Health & Fitness',
+    metrics: 'Token Auth & Prescription',
     description:
       'Healthcare app for appointment booking and medicine ordering using GetX. Leveraged RESTful APIs for efficient data handling with a token-based secure access system.',
     technologies: ['Flutter', 'GetX', 'REST APIs', 'Token Auth', 'Healthcare'],

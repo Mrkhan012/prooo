@@ -7,12 +7,15 @@
 // Project screenshots
 import wagonEye from '../assets/projects/wagon_eye.png';
 import restaurantApp from '../assets/projects/restaurant_app.png';
+import rhPosWeb from '../assets/projects/rh_pos_web.jpg';
+import dfccUnusual from '../assets/projects/dfcc_unusual.jpg';
 import railops from '../assets/projects/railops.png';
 import coachsathi from '../assets/projects/coachsathi.png';
 import vpnApp from '../assets/projects/vpn_app.png';
 import wellnessz from '../assets/projects/wellnessz.png';
 import abcCoaching from '../assets/projects/abc_coaching.png';
 import healtho from '../assets/projects/healtho.png';
+import nexusAi from '../assets/projects/nexus_ai.jpg';
 
 // ---------- Personal Information ----------
 export const personal = {
@@ -221,18 +224,59 @@ export const projects = [
     ],
   },
   {
-    title: 'Restaurant Management System',
-    subtitle: 'Cross-Platform POS Solution',
+    title: 'RH POS — Restaurant POS Application',
+    subtitle: 'Restaurant POS & Terminal Ecosystem',
     description:
-      'Full-featured cross-platform restaurant POS with Clean Architecture and ObjectBox. Complete workflows: Dashboard, KOT, Billing, KDS and Captain Flow, with TCP-based real-time communication between Server POS ↔ Captain POS ↔ KDS. Bill splitting, order types, reporting, Bluetooth/Network printing and multi-language support (English, Hindi, Arabic).',
-    technologies: ['Flutter', 'ObjectBox', 'TCP/Socket', 'Clean Architecture', 'Multi-platform'],
+      'Built the RH POS terminal ecosystem in Flutter: a Windows POS terminal, an Android captain/waiter app, and a Kitchen Display System (KDS) app. Architected an offline-first terminal and captain app with ObjectBox local persistence, syncing orders in real time over LAN via Socket.IO and custom TCP/UDP channels across the terminal, captain devices and KDS. Implemented Bluetooth thermal bill/KOT printing with PDF generation and pre-warmed Google Font caching to remove first-print latency, plus REST integration via Dio and sales analytics dashboards using fl_chart. Added secure cloud database backup/restore using AWS S3-compatible storage with HMAC-SHA256 signed requests.',
+    technologies: [
+      'Flutter',
+      'GetX',
+      'ObjectBox',
+      'Dio',
+      'Socket.IO',
+      'fl_chart',
+      'PDF Generation',
+      'Bluetooth Printing',
+      'AWS S3',
+      'Google Fonts',
+    ],
     category: 'Freelance',
     image: restaurantApp,
     highlights: [
-      'Real-time TCP communication',
-      'Multi-language support',
-      'Bluetooth & Network printing',
-      'Bill splitting & KOT management',
+      'Windows POS terminal, Android captain app & KDS ecosystem',
+      'Offline-first sync via ObjectBox, Socket.IO & LAN TCP/UDP',
+      'Bluetooth thermal bill/KOT printing with PDF generation',
+      'Secure AWS S3 backup/restore with HMAC-SHA256',
+    ],
+  },
+  {
+    title: 'RH POS — Web Back-Office',
+    subtitle: 'Restaurant Admin & Customer Ordering Web App',
+    description:
+      'Built the companion React + Vite web back-office for RH POS, spanning 14 management modules (live orders, billing, menu, inventory, reports, tables, users). Implemented JWT auth with proactive token refresh and role/permission-based access control, plus English/Hindi/Arabic (RTL) multilingual support. Developed a companion customer-facing ordering website integrated with the back-office.',
+    technologies: ['React.js', 'Vite', 'JWT', 'i18next', 'REST APIs', 'RBAC'],
+    category: 'Freelance',
+    image: rhPosWeb,
+    highlights: [
+      '14 management modules (live orders, billing, menu, inventory)',
+      'JWT auth with proactive token refresh & RBAC',
+      'English, Hindi & Arabic (RTL) multilingual support',
+      'Integrated customer-facing ordering website',
+    ],
+  },
+  {
+    title: 'DFCC Unusual — Railway Field Inspection App',
+    subtitle: 'Railway Defect Reporting Platform · Sarva Suvidhaen',
+    description:
+      'Built a cross-platform Flutter app (Android + Web) for DFCCIL field engineers to report railway defects (hot axles, brake binding, wheel defects) with photo/video evidence and GPS tagging, as part of the railway applications portfolio at Sarva Suvidhaen Pvt Ltd. Architected an offline-first submission workflow with a persistent photo-upload queue that survives app restarts and auto-retries on reconnection, ensuring zero data loss in low-connectivity environments. Implemented JWT auth with transparent token refresh via custom Dio interceptors, and optimistic UI updates for a seamless user experience during network delays. Automated CI/CD pipelines using GitHub Actions to deploy web builds to Netlify and Android App Bundles to the Play Store production track on every main branch push.',
+    technologies: ['Flutter', 'Dart', 'BLoC', 'Dio', 'GitHub Actions', 'Offline-First'],
+    category: 'Professional',
+    image: dfccUnusual,
+    highlights: [
+      'Railway defect reporting with photo/video & GPS tagging',
+      'Offline-first persistent upload queue surviving restarts',
+      'JWT auth with transparent Dio token refresh & optimistic UI',
+      'CI/CD pipelines to Netlify & Play Store production track',
     ],
   },
   {
@@ -263,6 +307,21 @@ export const projects = [
       'Attendance tracking',
       'Role-based access',
       'Service check modules',
+    ],
+  },
+  {
+    title: 'Nexus AI Voice Assistant',
+    subtitle: 'Offline-Capable Desktop Voice Assistant',
+    description:
+      'Offline-capable desktop voice assistant that classifies spoken commands using a trained scikit-learn + NLTK intent model. Engineered a modular architecture with speech-to-text listening, text-to-speech responses, and an action executor for application launches, system controls, and automated queries.',
+    technologies: ['Python', 'Machine Learning', 'scikit-learn', 'NLTK', 'Speech Recognition'],
+    category: 'Personal',
+    image: nexusAi,
+    highlights: [
+      'Trained scikit-learn + NLTK intent classification model',
+      'Offline-capable desktop voice assistant architecture',
+      'Speech-to-text listening & text-to-speech responses',
+      'Modular action executor for system controls & app launching',
     ],
   },
   {
@@ -323,34 +382,6 @@ export const projects = [
       'Medicine ordering',
       'Token-based auth',
       'Healthcare workflows',
-    ],
-  },
-  {
-    title: 'Crow',
-    subtitle: 'React Native — Personal Project',
-    description:
-      'A personal React Native application currently in development. Exploring cross-platform mobile development beyond Flutter with React Native to broaden expertise and deliver a polished, production-ready mobile experience.',
-    technologies: ['React Native', 'JavaScript', 'Mobile Development'],
-    category: 'Personal',
-    status: 'In Development',
-    highlights: [
-      'Built with React Native',
-      'Expanding into cross-platform mobile',
-      'Personal project, actively developed',
-    ],
-  },
-  {
-    title: 'Jazzy Breathing',
-    subtitle: 'React Native — Personal Project',
-    description:
-      'A breathing and wellness companion app built with React Native. Currently in development as a personal project, blending mindful design with practical mobile UX to help users with guided breathing exercises.',
-    technologies: ['React Native', 'JavaScript', 'Wellness', 'Mobile Development'],
-    category: 'Personal',
-    status: 'In Development',
-    highlights: [
-      'Built with React Native',
-      'Guided breathing exercises',
-      'Personal project, actively developed',
     ],
   },
 ];

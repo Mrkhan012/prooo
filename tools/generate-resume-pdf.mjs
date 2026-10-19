@@ -357,17 +357,28 @@ function projects(doc) {
     // Tech pills
     doc.moveDown(0.2);
     let px = m;
-    const py = doc.y;
+    let py = doc.y;
+    let maxH = 11;
     p.technologies.forEach((t) => {
-      const { w: tw } = pill(doc, t, px, py, {
+      doc.save();
+      doc.fontSize(6.5).font('Helvetica-Bold');
+      const tw = doc.widthOfString(t) + 6;
+      doc.restore();
+      if (px + tw > m + w && px > m) {
+        px = m;
+        py += maxH + 3;
+      }
+      const { w: actualW, h: actualH } = pill(doc, t, px, py, {
         fill: COLORS.panel,
         textColor: COLORS.textMuted,
         fontSize: 6.5,
         padding: 3,
       });
-      px += tw + 4;
+      maxH = Math.max(maxH, actualH);
+      px += actualW + 4;
     });
-    doc.moveDown(1);
+    doc.y = py + maxH;
+    doc.moveDown(0.8);
   });
 }
 

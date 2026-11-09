@@ -26,16 +26,13 @@ const Contact = () => {
   };
 
   return (
-    <section ref={ref} id="contact" className="bg-[#0a0a0a] w-full min-h-screen relative overflow-hidden flex items-end pt-32 pb-0 md:pb-0 border-t border-gray-900">
+    <section ref={ref} id="contact" className="bg-[#fdfdfe] w-full min-h-screen relative overflow-hidden flex items-end pt-32 pb-0 md:pb-0 border-t border-[#0099ff]/10">
       {/* Huge Background Text */}
       <motion.div
         style={{ y }}
         className="absolute top-0 left-0 w-full h-full flex flex-col justify-start items-center overflow-hidden pointer-events-none z-0 pt-16 md:pt-12"
       >
-        <h1
-          className="text-[25vw] leading-[0.75] font-black text-white uppercase tracking-tighter select-none scale-y-[1.6] origin-top"
-          style={{ fontFamily: "'Impact', 'Arial Black', sans-serif" }}
-        >
+        <h1 className="font-display text-[25vw] leading-[0.75] text-[#0099ff] uppercase tracking-tighter select-none scale-y-[1.6] origin-top">
           Contact
         </h1>
       </motion.div>
@@ -44,16 +41,16 @@ const Contact = () => {
       <div className="relative z-10 w-full flex justify-end items-end">
         <div
           data-aos="fade-up"
-          className="bg-[#ff2a2a] w-full md:w-[85%] lg:w-[75%] p-8 md:p-16 text-white flex flex-col justify-between"
+          className="bg-[#0099ff] w-full md:w-[85%] lg:w-[75%] p-8 md:p-16 text-white flex flex-col justify-between"
         >
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12 md:mb-16">
             <div className="text-xs font-bold tracking-[0.2em] uppercase opacity-90">
               Let’s build something
             </div>
             <div className="flex flex-wrap gap-4 text-xs font-bold uppercase tracking-wider">
-              <a href={socials.linkedin} target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-black transition-colors">LinkedIn</a>
-              <a href={socials.github} target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-black transition-colors">GitHub</a>
-              <a href={socials.whatsapp} target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-black transition-colors">WhatsApp</a>
+              <a href={socials.linkedin} target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-[#0099ff] transition-colors">LinkedIn</a>
+              <a href={socials.github} target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-[#0099ff] transition-colors">GitHub</a>
+              <a href={socials.whatsapp} target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-[#0099ff] transition-colors">WhatsApp</a>
             </div>
           </div>
 
@@ -114,10 +111,10 @@ const Contact = () => {
             <div className="flex flex-col md:flex-row gap-12 mt-4">
               {/* Left: contact details */}
               <div className="flex-1 flex flex-col gap-3 text-sm font-medium text-white/90">
-                <a href={`mailto:${personal.email}`} className="flex items-center gap-3 hover:text-black transition-colors">
+                <a href={`mailto:${personal.email}`} className="flex items-center gap-3 hover:text-[#0099ff] transition-colors">
                   <span className="text-lg">✉️</span> {personal.email}
                 </a>
-                <a href={`tel:${personal.phoneRaw}`} className="flex items-center gap-3 hover:text-black transition-colors">
+                <a href={`tel:${personal.phoneRaw}`} className="flex items-center gap-3 hover:text-[#0099ff] transition-colors">
                   <span className="text-lg">📞</span> {personal.phone}
                 </a>
                 <p className="flex items-center gap-3">
@@ -137,7 +134,7 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    className="px-8 py-3 rounded-full border border-white/40 text-white font-bold flex items-center justify-center gap-3 hover:bg-white hover:text-[#ff2a2a] transition-all duration-300 group whitespace-nowrap self-start sm:self-auto"
+                    className="px-8 py-3 rounded-full bg-[#fdfdfe] text-[#0099ff] font-bold flex items-center justify-center gap-3 hover:bg-white transition-all duration-300 group whitespace-nowrap self-start sm:self-auto shadow-[0_10px_25px_rgba(0,153,255,0.25)]"
                   >
                     Send
                     <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

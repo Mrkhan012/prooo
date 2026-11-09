@@ -15,13 +15,13 @@ const TimelineRow = ({ side, children }) => {
     >
       {/* connector dot (mobile = left, desktop = centre) */}
       <span
-        className={`md:hidden absolute left-[1.05rem] top-8 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-[#0a0a0a] z-10 transition-all duration-500 ${
-          active ? 'bg-[#ff2a2a] shadow-[0_0_16px_rgba(255,42,42,0.85)]' : 'bg-white/25'
+        className={`md:hidden absolute left-[1.05rem] top-8 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-[#fdfdfe] z-10 transition-all duration-500 ${
+          active ? 'bg-[#0099ff] shadow-[0_0_16px_rgba(0,153,255,0.85)]' : 'bg-[#0099ff]/15'
         }`}
       />
       <span
-        className={`hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-4 border-[#0a0a0a] z-10 transition-all duration-500 ${
-          active ? 'bg-[#ff2a2a] shadow-[0_0_20px_rgba(255,42,42,0.9)] scale-110' : 'bg-white/25'
+        className={`hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-4 border-[#fdfdfe] z-10 transition-all duration-500 ${
+          active ? 'bg-[#0099ff] shadow-[0_0_20px_rgba(0,153,255,0.9)] scale-110' : 'bg-[#0099ff]/15'
         }`}
       />
       <div className={side === 'right' ? 'md:col-start-2' : 'md:col-start-1 md:row-start-1'}>
@@ -40,17 +40,17 @@ const Experience = () => {
   const scaleY = useSpring(scrollYProgress, { stiffness: 60, damping: 20, restDelta: 0.001 });
 
   return (
-    <section id="experience" className="bg-[#0a0a0a] py-24 md:py-28 px-6 md:px-12 w-full relative overflow-hidden font-sans">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none" />
+    <section id="experience" className="bg-[#fdfdfe] text-[#0099ff] py-24 md:py-28 px-6 md:px-12 w-full relative overflow-hidden font-sans">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0099ff0d_1px,transparent_1px),linear-gradient(to_bottom,#0099ff0d_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative z-10">
 
         {/* Header */}
         <div data-aos="fade-up" className="mb-16 text-center">
-          <div className="inline-block border border-white/20 rounded-full px-5 py-1.5 text-sm text-white/70 font-bold mb-6 bg-white/5">
-            My journey
+          <div className="tag-pill border-[#0099ff]/40 bg-[#0099ff]/5 text-[#0099ff] mb-6">
+            [ #JOURNEY ]
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#0099ff] leading-[1.1] tracking-tight">
             Experience
           </h2>
         </div>
@@ -58,10 +58,10 @@ const Experience = () => {
         {/* Flowing timeline */}
         <div ref={timelineRef} className="relative">
           {/* the line (animated red fill grows on scroll) */}
-          <div className="absolute top-0 bottom-0 left-[1.05rem] md:left-1/2 md:-translate-x-1/2 w-[3px] bg-white/10 overflow-hidden rounded-full">
+          <div className="absolute top-0 bottom-0 left-[1.05rem] md:left-1/2 md:-translate-x-1/2 w-[3px] bg-[#0099ff]/15 overflow-hidden rounded-full">
             <motion.div
               style={{ scaleY }}
-              className="absolute inset-0 origin-top bg-gradient-to-b from-[#ff2a2a] to-[#ff6a6a]"
+              className="absolute inset-0 origin-top bg-gradient-to-b from-[#0099ff] to-[#0099ff]"
             />
           </div>
 
@@ -71,20 +71,20 @@ const Experience = () => {
                 <div
                   className={`rounded-2xl p-5 border transition-all duration-500 ${
                     active
-                      ? 'bg-[#ff2a2a]/10 border-[#ff2a2a]/50 shadow-[0_18px_45px_rgba(255,42,42,0.2)] md:scale-[1.02]'
-                      : 'bg-white/5 border-white/10'
+                      ? 'bg-[#0099ff]/8 border-[#0099ff]/50 shadow-[0_18px_45px_rgba(0,153,255,0.2)] md:scale-[1.02]'
+                      : 'bg-white border-[#0099ff]/15 shadow-[0_10px_30px_rgba(0,153,255,0.08)]'
                   }`}
                 >
-                  <span className="inline-block bg-[#ff2a2a]/15 text-[#ff6a6a] text-[11px] font-bold px-3 py-1 rounded-full border border-[#ff2a2a]/30 mb-2">
+                  <span className="inline-block bg-[#0099ff]/10 text-[#0099ff] text-[11px] font-bold px-3 py-1 rounded-full border border-[#0099ff]/30 mb-2">
                     {exp.duration}
                   </span>
-                  <h3 className="text-lg font-black text-white leading-tight">{exp.role}</h3>
-                  <p className="text-[#ff6a6a] text-sm font-bold">{exp.company} · <span className="text-white/45 font-medium">{exp.location}</span></p>
+                  <h3 className="text-lg font-black text-[#0099ff] leading-tight">{exp.role}</h3>
+                  <p className="text-[#0099ff] text-sm font-bold">{exp.company} · <span className="text-[#0099ff]/45 font-medium">{exp.location}</span></p>
 
                   <ul className="space-y-1.5 my-3">
                     {exp.points.map((point) => (
-                      <li key={point} className="flex items-start gap-2 text-white/70 text-[13px] leading-snug">
-                        <span className="text-[#ff2a2a] mt-0.5 shrink-0">▸</span>
+                      <li key={point} className="flex items-start gap-2 text-[#0099ff]/70 text-[13px] leading-snug">
+                        <span className="text-[#0099ff] mt-0.5 shrink-0">▸</span>
                         {point}
                       </li>
                     ))}
@@ -92,7 +92,7 @@ const Experience = () => {
 
                   <div className="flex flex-wrap gap-1.5">
                     {exp.technologies.map((tech) => (
-                      <span key={tech} className="bg-white/8 border border-white/15 text-white/75 text-[10px] font-semibold px-2.5 py-0.5 rounded-full">
+                      <span key={tech} className="bg-[#0099ff]/5 border border-[#0099ff]/20 text-[#0099ff]/75 text-[10px] font-semibold px-2.5 py-0.5 rounded-full">
                         {tech}
                       </span>
                     ))}
@@ -105,7 +105,7 @@ const Experience = () => {
 
         {/* Education */}
         <div className="mt-20">
-          <h3 data-aos="fade-up" className="text-2xl md:text-3xl font-black text-white mb-8 text-center">
+          <h3 data-aos="fade-up" className="font-display text-3xl md:text-4xl text-[#0099ff] mb-8 text-center">
             Education
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -114,11 +114,11 @@ const Experience = () => {
                 key={edu.institution}
                 data-aos="fade-up"
                 data-aos-delay={idx * 100}
-                className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/8 hover:border-[#ff2a2a]/40 transition-colors duration-500"
+                className="bg-white border border-[#0099ff]/15 rounded-2xl p-6 shadow-[0_10px_30px_rgba(0,153,255,0.08)] hover:border-[#0099ff]/50 hover:shadow-[0_14px_35px_rgba(0,153,255,0.2)] transition-all duration-500"
               >
-                <p className="text-[#ff6a6a] text-xs font-bold mb-2">{edu.duration}</p>
-                <p className="text-white font-black leading-snug mb-1">{edu.degree}</p>
-                <p className="text-white/55 text-sm font-medium">{edu.institution}</p>
+                <p className="text-[#0099ff] text-xs font-bold mb-2">{edu.duration}</p>
+                <p className="text-[#0099ff] font-black leading-snug mb-1">{edu.degree}</p>
+                <p className="text-[#0099ff]/55 text-sm font-medium">{edu.institution}</p>
               </div>
             ))}
           </div>

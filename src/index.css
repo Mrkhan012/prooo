@@ -1,6 +1,19 @@
 @import "tailwindcss";
 
+/* ============================================================
+   UPLIFT-style design tokens
+   Sky Blue #0099FF · Amber Red #0099ff · Cloud White #FDFDFE
+   ============================================================ */
 @theme {
+  --color-sky: #0099ff;
+  --color-sky-soft: #0099ff;
+  --color-sky-deep: #0099ff;
+  --color-cloud: #fdfdfe;
+  --color-ink: #0099ff;
+
+  --font-display: "Anton", "Archivo Black", "Arial Black", sans-serif;
+  --font-mono: "Space Mono", "JetBrains Mono", ui-monospace, monospace;
+
   --animate-float: float 6s ease-in-out infinite;
 
   @keyframes float {
@@ -16,8 +29,31 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #000;
-  color: #fff;
+  background-color: #0099ff;
+  color: #fdfdfe;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Condensed uppercase display type, like the banner headline */
+.font-display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+/* [ #TAG ] bracketed monospace pills from the banner */
+.tag-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0099ff;
+  border: 1px solid rgba(0, 153, 255, 0.45);
+  border-radius: 9999px;
+  padding: 4px 12px;
+  white-space: nowrap;
 }
 
 [data-aos="drop-bounce"] {

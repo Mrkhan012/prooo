@@ -3,9 +3,9 @@ import { motion, AnimatePresence, useScroll, useSpring, useInView } from 'framer
 import { projects } from '../data/portfolio';
 
 const categoryBadges = {
-  Professional: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
-  Freelance: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
-  Personal: 'bg-purple-500/15 text-purple-300 border-purple-500/30',
+  Professional: 'bg-[#0099ff]/15 text-[#0099ff] border-[#0099ff]/30',
+  Freelance: 'bg-[#0099ff]/15 text-[#0099ff] border-[#0099ff]/30',
+  Personal: 'bg-white text-[#0099ff] border-[#0099ff]/30',
 };
 
 // Filter categories
@@ -46,20 +46,20 @@ const BentoCard = ({ project, onSelect, index }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => onSelect(project)}
-      className="group relative rounded-3xl overflow-hidden border border-white/10 bg-[#121214]/80 backdrop-blur-xl transition-all duration-500 hover:border-[#ff2a2a]/60 hover:shadow-[0_20px_50px_rgba(255,42,42,0.18)] cursor-pointer flex flex-col justify-between"
+      className="group relative rounded-3xl overflow-hidden border border-[#0099ff]/15 bg-white transition-all duration-500 hover:border-[#0099ff]/60 hover:shadow-[0_20px_50px_rgba(0,153,255,0.25)] cursor-pointer flex flex-col justify-between shadow-[0_10px_30px_rgba(0,153,255,0.08)]"
     >
       {/* Mouse spotlight glow */}
       <div
         className="pointer-events-none absolute -inset-px transition-opacity duration-500 rounded-3xl"
         style={{
           opacity: isHovered ? 1 : 0,
-          background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 42, 42, 0.16), transparent 70%)`,
+          background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(0, 153, 255, 0.12), transparent 70%)`,
         }}
       />
 
       <div>
         {/* Project Thumbnail Image with overlay gradient */}
-        <div className="relative w-full aspect-[16/10] overflow-hidden bg-black/50">
+        <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#0099ff]/40">
           {project.image ? (
             <img
               src={project.image}
@@ -73,20 +73,20 @@ const BentoCard = ({ project, onSelect, index }) => {
             </div>
           )}
           
-          <div className="absolute inset-0 bg-gradient-to-t from-[#121214] via-[#121214]/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/10 to-transparent" />
 
           {/* Badges on top */}
           <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 pointer-events-none">
             <span
               className={`text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border backdrop-blur-md shadow-lg ${
-                categoryBadges[project.category] || 'bg-white/10 text-white border-white/20'
+                categoryBadges[project.category] || 'bg-white text-[#0099ff] border-[#0099ff]/30'
               }`}
             >
               {project.category}
             </span>
 
             {project.featured && (
-              <span className="text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full bg-[#ff2a2a] text-white shadow-[0_0_15px_rgba(255,42,42,0.6)] flex items-center gap-1">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full bg-[#0099ff] text-white shadow-[0_0_15px_rgba(0,153,255,0.6)] flex items-center gap-1">
                 <span>★</span> Flagship
               </span>
             )}
@@ -95,7 +95,7 @@ const BentoCard = ({ project, onSelect, index }) => {
           {/* Quick Domain Tag */}
           {project.domain && (
             <div className="absolute bottom-3 left-4">
-              <span className="text-[11px] font-semibold text-white/80 bg-black/60 backdrop-blur-md border border-white/15 px-2.5 py-0.5 rounded-md">
+              <span className="text-[11px] font-semibold text-[#0099ff] bg-white/90 backdrop-blur-md border border-[#0099ff]/25 px-2.5 py-0.5 rounded-md">
                 {project.domain}
               </span>
             </div>
@@ -104,7 +104,7 @@ const BentoCard = ({ project, onSelect, index }) => {
           {/* Quick Metric highlight */}
           {project.metrics && (
             <div className="absolute bottom-3 right-4">
-              <span className="text-[10px] font-mono text-[#ff8080] bg-[#ff2a2a]/15 border border-[#ff2a2a]/30 px-2 py-0.5 rounded-md">
+              <span className="text-[10px] font-mono text-[#0099ff] bg-white/90 border border-[#0099ff]/25 px-2 py-0.5 rounded-md">
                 {project.metrics}
               </span>
             </div>
@@ -115,16 +115,16 @@ const BentoCard = ({ project, onSelect, index }) => {
         <div className="p-6 md:p-7">
           <div className="flex items-start justify-between gap-3 mb-2">
             <div>
-              <h3 className="text-xl font-black text-white leading-tight group-hover:text-[#ff4d4d] transition-colors">
+              <h3 className="text-xl font-black text-[#0099ff] leading-tight transition-colors">
                 {project.title}
               </h3>
-              <p className="text-[#ff6a6a] text-xs font-bold tracking-wide mt-1">
+              <p className="text-[#0099ff] text-xs font-bold tracking-wide mt-1">
                 {project.subtitle}
               </p>
             </div>
             <button
               type="button"
-              className="shrink-0 w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 group-hover:bg-[#ff2a2a] group-hover:text-white group-hover:border-[#ff2a2a] transition-all"
+              className="shrink-0 w-8 h-8 rounded-full bg-[#0099ff]/8 border border-[#0099ff]/25 flex items-center justify-center text-[#0099ff] group- group-hover:text-white group-hover:border-[#0099ff] transition-all"
               title="Inspect specifications"
             >
               <svg className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -133,15 +133,15 @@ const BentoCard = ({ project, onSelect, index }) => {
             </button>
           </div>
 
-          <p className="text-white/60 text-xs md:text-sm leading-relaxed line-clamp-3 mb-5 font-normal">
+          <p className="text-[#0099ff]/60 text-xs md:text-sm leading-relaxed line-clamp-3 mb-5 font-normal">
             {project.description}
           </p>
 
           {/* Highlights checklist */}
           <ul className="space-y-1.5 mb-6">
             {project.highlights.slice(0, 3).map((h) => (
-              <li key={h} className="flex items-start gap-2 text-white/80 text-xs font-medium">
-                <span className="text-[#ff2a2a] mt-0.5 shrink-0 font-bold">✓</span>
+              <li key={h} className="flex items-start gap-2 text-[#0099ff]/80 text-xs font-medium">
+                <span className="text-[#0099ff] mt-0.5 shrink-0 font-bold">✓</span>
                 <span className="line-clamp-1">{h}</span>
               </li>
             ))}
@@ -150,17 +150,17 @@ const BentoCard = ({ project, onSelect, index }) => {
       </div>
 
       {/* Tech pills footer */}
-      <div className="px-6 pb-6 pt-2 border-t border-white/5 flex flex-wrap gap-1.5">
+      <div className="px-6 pb-6 pt-2 border-t border-[#0099ff]/10 flex flex-wrap gap-1.5">
         {project.technologies.slice(0, 5).map((tech) => (
           <span
             key={tech}
-            className="bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 text-white/80 text-[10px] font-semibold px-2.5 py-0.8 rounded-full transition-colors"
+            className="bg-[#0099ff]/5 hover:bg-[#0099ff]/10 border border-[#0099ff]/20 text-[#0099ff]/80 text-[10px] font-semibold px-2.5 py-0.8 rounded-full transition-colors"
           >
             {tech}
           </span>
         ))}
         {project.technologies.length > 5 && (
-          <span className="text-[10px] font-semibold text-[#ff6a6a] px-2 py-0.8 rounded-full bg-[#ff2a2a]/10 border border-[#ff2a2a]/20">
+          <span className="text-[10px] font-semibold text-[#0099ff] px-2 py-0.8 rounded-full bg-[#0099ff]/10 border border-[#0099ff]/20">
             +{project.technologies.length - 5} more
           </span>
         )}
@@ -181,13 +181,13 @@ const TimelineRow = ({ project, side, onSelect }) => {
     >
       {/* Timeline spine dot */}
       <span
-        className={`md:hidden absolute left-[0.95rem] top-8 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-[#0a0a0a] z-10 transition-all duration-500 ${
-          active ? 'bg-[#ff2a2a] shadow-[0_0_20px_rgba(255,42,42,0.9)] scale-110' : 'bg-white/20'
+        className={`md:hidden absolute left-[0.95rem] top-8 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-[#fdfdfe] z-10 transition-all duration-500 ${
+          active ? 'bg-[#0099ff] shadow-[0_0_20px_rgba(0,153,255,0.9)] scale-110' : 'bg-[#0099ff]/15'
         }`}
       />
       <span
-        className={`hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-4 border-[#0a0a0a] z-10 transition-all duration-500 ${
-          active ? 'bg-[#ff2a2a] shadow-[0_0_24px_rgba(255,42,42,0.95)] scale-125' : 'bg-white/20'
+        className={`hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-4 border-[#fdfdfe] z-10 transition-all duration-500 ${
+          active ? 'bg-[#0099ff] shadow-[0_0_24px_rgba(0,153,255,0.95)] scale-125' : 'bg-[#0099ff]/15'
         }`}
       />
 
@@ -196,11 +196,11 @@ const TimelineRow = ({ project, side, onSelect }) => {
           onClick={() => onSelect(project)}
           className={`group rounded-3xl overflow-hidden border transition-all duration-500 cursor-pointer ${
             active
-              ? 'bg-[#18181c] border-[#ff2a2a]/60 shadow-[0_20px_50px_rgba(255,42,42,0.22)] md:scale-[1.02]'
-              : 'bg-[#121214]/90 border-white/10 hover:border-white/25'
+              ? 'bg-white border-[#0099ff]/60 shadow-[0_20px_50px_rgba(0,153,255,0.25)] md:scale-[1.02]'
+              : 'bg-white border-[#0099ff]/15 hover:border-[#0099ff]/40 shadow-[0_10px_30px_rgba(0,153,255,0.08)]'
           }`}
         >
-          <div className="relative w-full aspect-[16/10] overflow-hidden bg-black/40">
+          <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#0099ff]/30">
             {project.image ? (
               <img
                 src={project.image}
@@ -215,31 +215,31 @@ const TimelineRow = ({ project, side, onSelect }) => {
             )}
             <span
               className={`absolute top-4 left-4 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md ${
-                categoryBadges[project.category] || 'bg-white/15 text-white'
+                categoryBadges[project.category] || 'bg-white text-[#0099ff] border border-[#0099ff]/30'
               }`}
             >
               {project.category}
             </span>
             {project.domain && (
-              <span className="absolute top-4 right-4 text-[10px] font-semibold text-white/90 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/15">
+              <span className="absolute top-4 right-4 text-[10px] font-semibold text-[#0099ff] bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#0099ff]/25">
                 {project.domain}
               </span>
             )}
           </div>
 
           <div className="p-6 md:p-7">
-            <h3 className="text-xl font-black text-white leading-tight group-hover:text-[#ff4d4d] transition-colors">
+            <h3 className="text-xl font-black text-[#0099ff] leading-tight transition-colors">
               {project.title}
             </h3>
-            <p className="text-[#ff6a6a] text-xs font-bold mb-3">{project.subtitle}</p>
-            <p className="text-white/60 text-xs md:text-sm leading-relaxed mb-4 line-clamp-3">
+            <p className="text-[#0099ff] text-xs font-bold mb-3">{project.subtitle}</p>
+            <p className="text-[#0099ff]/60 text-xs md:text-sm leading-relaxed mb-4 line-clamp-3">
               {project.description}
             </p>
 
             <ul className="space-y-1.5 mb-5">
               {project.highlights.slice(0, 3).map((h) => (
-                <li key={h} className="flex items-start gap-2 text-white/75 text-xs font-medium">
-                  <span className="text-[#ff2a2a] mt-0.5 shrink-0 font-bold">✓</span>
+                <li key={h} className="flex items-start gap-2 text-[#0099ff]/75 text-xs font-medium">
+                  <span className="text-[#0099ff] mt-0.5 shrink-0 font-bold">✓</span>
                   <span className="line-clamp-1">{h}</span>
                 </li>
               ))}
@@ -249,7 +249,7 @@ const TimelineRow = ({ project, side, onSelect }) => {
               {project.technologies.slice(0, 6).map((tech) => (
                 <span
                   key={tech}
-                  className="bg-white/8 border border-white/10 text-white/75 text-[11px] font-semibold px-2.5 py-0.8 rounded-full"
+                  className="bg-[#0099ff]/5 border border-[#0099ff]/20 text-[#0099ff]/75 text-[11px] font-semibold px-2.5 py-0.8 rounded-full"
                 >
                   {tech}
                 </span>
@@ -280,7 +280,7 @@ const ProjectModal = ({ project, onClose, onTagClick }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/80 backdrop-blur-md overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-[#0099ff]/60 backdrop-blur-md overflow-y-auto"
     >
       <motion.div
         initial={{ scale: 0.92, opacity: 0, y: 20 }}
@@ -288,13 +288,13 @@ const ProjectModal = ({ project, onClose, onTagClick }) => {
         exit={{ scale: 0.95, opacity: 0, y: 20 }}
         transition={{ type: 'spring', damping: 25, stiffness: 280 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-3xl rounded-3xl bg-[#141418] border border-white/15 overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.8)] my-auto"
+        className="relative w-full max-w-3xl rounded-3xl bg-[#fdfdfe] text-[#0099ff] border border-[#0099ff]/20 overflow-hidden shadow-[0_25px_70px_rgba(0,153,255,0.35)] my-auto"
       >
         {/* Close Button */}
         <button
           onClick={onClose}
           type="button"
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-[#ff2a2a] border border-white/20 hover:border-[#ff2a2a] text-white flex items-center justify-center transition-all duration-300"
+          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white  border border-[#0099ff]/25 hover:border-[#0099ff] text-[#0099ff] flex items-center justify-center transition-all duration-300 shadow-lg"
           title="Close modal"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -303,7 +303,7 @@ const ProjectModal = ({ project, onClose, onTagClick }) => {
         </button>
 
         {/* Modal Banner Image */}
-        <div className="relative w-full aspect-[16/9] max-h-80 overflow-hidden bg-black/60">
+        <div className="relative w-full aspect-[16/9] max-h-80 overflow-hidden bg-[#0099ff]/50">
           {project.image ? (
             <img
               src={project.image}
@@ -315,27 +315,27 @@ const ProjectModal = ({ project, onClose, onTagClick }) => {
               <span className="text-6xl">⚡</span>
             </div>
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#141418] via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#fdfdfe] via-transparent to-[#0099ff]/20" />
 
           {/* Floating Badges */}
           <div className="absolute bottom-4 left-6 right-6 flex items-end justify-between">
             <div className="flex flex-wrap gap-2">
               <span
                 className={`text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full border shadow-md backdrop-blur-md ${
-                  categoryBadges[project.category] || 'bg-white/15 text-white'
+                  categoryBadges[project.category] || 'bg-white text-[#0099ff] border-[#0099ff]/30'
                 }`}
               >
                 {project.category}
               </span>
               {project.domain && (
-                <span className="text-xs font-semibold text-white/90 bg-black/70 backdrop-blur-md border border-white/20 px-3 py-1 rounded-full">
+                <span className="text-xs font-semibold text-[#0099ff] bg-white/90 backdrop-blur-md border border-[#0099ff]/25 px-3 py-1 rounded-full">
                   {project.domain}
                 </span>
               )}
             </div>
 
             {project.metrics && (
-              <span className="text-xs font-mono font-bold text-[#ff8080] bg-[#ff2a2a]/20 border border-[#ff2a2a]/40 px-3 py-1 rounded-full backdrop-blur-md">
+              <span className="text-xs font-mono font-bold text-[#0099ff] bg-white/90 border border-[#0099ff]/25 px-3 py-1 rounded-full backdrop-blur-md">
                 {project.metrics}
               </span>
             )}
@@ -345,34 +345,34 @@ const ProjectModal = ({ project, onClose, onTagClick }) => {
         {/* Modal Details */}
         <div className="p-6 md:p-8 max-h-[60vh] overflow-y-auto space-y-6">
           <div>
-            <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
+            <h2 className="text-2xl md:text-3xl font-black text-[#0099ff] leading-tight">
               {project.title}
             </h2>
-            <p className="text-[#ff6a6a] text-sm md:text-base font-bold mt-1">
+            <p className="text-[#0099ff] text-sm md:text-base font-bold mt-1">
               {project.subtitle}
             </p>
           </div>
 
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-white/50 mb-2">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-[#0099ff]/50 mb-2">
               Architecture & Overview
             </h4>
-            <p className="text-white/80 text-sm md:text-base leading-relaxed font-normal">
+            <p className="text-[#0099ff]/80 text-sm md:text-base leading-relaxed font-normal">
               {project.description}
             </p>
           </div>
 
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-white/50 mb-3">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-[#0099ff]/50 mb-3">
               Engineering Deliverables & Highlights
             </h4>
             <div className="grid grid-cols-1 gap-2.5">
               {project.highlights.map((h, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.04] border border-white/8 text-white/85 text-xs md:text-sm"
+                  className="flex items-start gap-3 p-3 rounded-xl bg-[#0099ff]/5 border border-[#0099ff]/15 text-[#0099ff]/85 text-xs md:text-sm"
                 >
-                  <span className="w-5 h-5 rounded-full bg-[#ff2a2a]/20 text-[#ff2a2a] flex items-center justify-center shrink-0 font-black text-xs">
+                  <span className="w-5 h-5 rounded-full bg-[#0099ff]/20 text-[#0099ff] flex items-center justify-center shrink-0 font-black text-xs">
                     ✓
                   </span>
                   <span>{h}</span>
@@ -382,7 +382,7 @@ const ProjectModal = ({ project, onClose, onTagClick }) => {
           </div>
 
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-white/50 mb-3">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-[#0099ff]/50 mb-3">
               Technology Stack
             </h4>
             <div className="flex flex-wrap gap-2">
@@ -393,7 +393,7 @@ const ProjectModal = ({ project, onClose, onTagClick }) => {
                     onTagClick(tech);
                     onClose();
                   }}
-                  className="bg-white/8 hover:bg-[#ff2a2a]/20 border border-white/12 hover:border-[#ff2a2a]/40 text-white/90 text-xs font-semibold px-3 py-1.5 rounded-full transition-all cursor-pointer"
+                  className="bg-[#0099ff]/5 hover:bg-[#0099ff]/15 border border-[#0099ff]/20 hover:border-[#0099ff]/40 text-[#0099ff]/90 text-xs font-semibold px-3 py-1.5 rounded-full transition-all cursor-pointer"
                   title={`Filter projects by ${tech}`}
                 >
                   {tech}
@@ -451,47 +451,46 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="bg-[#0a0a0a] py-24 md:py-32 px-6 md:px-12 w-full relative overflow-hidden font-sans"
+      className="bg-[#fdfdfe] text-[#0099ff] py-24 md:py-32 px-6 md:px-12 w-full relative overflow-hidden font-sans"
     >
       {/* Background aesthetic grid and glow */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff06_1px,transparent_1px),linear-gradient(to_bottom,#ffffff06_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] bg-[#ff2a2a]/10 rounded-full blur-[170px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0099ff08_1px,transparent_1px),linear-gradient(to_bottom,#0099ff08_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] bg-[#0099ff]/10 rounded-full blur-[170px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
 
         {/* Section Header */}
         <div data-aos="fade-up" className="mb-14 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 border border-[#ff2a2a]/30 rounded-full px-4 py-1.5 text-xs md:text-sm text-[#ff8080] font-bold mb-5 bg-[#ff2a2a]/10 shadow-[0_0_20px_rgba(255,42,42,0.15)]">
-            <span className="w-2 h-2 rounded-full bg-[#ff2a2a] animate-pulse" />
-            <span>Interactive Engineering Showcase</span>
+          <div className="tag-pill border-[#0099ff]/40 bg-[#0099ff]/5 text-[#0099ff] mb-5">
+            [ #WORK ]
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight">
-            Featured <span className="text-[#ff2a2a]">Projects</span> & Systems
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#0099ff] leading-[1.08] tracking-tight">
+            Featured <span className="text-[#0099ff]">Projects</span> &amp; Systems
           </h2>
 
-          <p className="text-white/65 text-sm md:text-lg font-medium leading-relaxed mt-4">
+          <p className="text-[#0099ff]/60 text-sm md:text-lg font-medium leading-relaxed mt-4">
             A curated exhibition of cross-platform terminal ecosystems, railway surveillance platforms,
             and offline-first architectures engineered for mission-critical reliability.
           </p>
 
           {/* Quick Stats Pill Strip */}
           <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div className="p-3.5 rounded-2xl bg-white/[0.04] border border-white/8 backdrop-blur-md text-center">
-              <span className="block text-2xl font-black text-white">{projects.length}</span>
-              <span className="text-[11px] font-semibold text-white/50 uppercase tracking-wider">Shipped Projects</span>
+            <div className="p-3.5 rounded-2xl bg-white border border-[#0099ff]/15 shadow-[0_8px_24px_rgba(0,153,255,0.08)] text-center">
+              <span className="block text-2xl font-black text-[#0099ff]">{projects.length}</span>
+              <span className="text-[11px] font-semibold text-[#0099ff]/50 uppercase tracking-wider">Shipped Projects</span>
             </div>
-            <div className="p-3.5 rounded-2xl bg-white/[0.04] border border-white/8 backdrop-blur-md text-center">
-              <span className="block text-2xl font-black text-[#ff4d4d]">3</span>
-              <span className="text-[11px] font-semibold text-white/50 uppercase tracking-wider">Railway Portfolios</span>
+            <div className="p-3.5 rounded-2xl bg-white border border-[#0099ff]/15 shadow-[0_8px_24px_rgba(0,153,255,0.08)] text-center">
+              <span className="block text-2xl font-black text-[#0099ff]">3</span>
+              <span className="text-[11px] font-semibold text-[#0099ff]/50 uppercase tracking-wider">Railway Portfolios</span>
             </div>
-            <div className="p-3.5 rounded-2xl bg-white/[0.04] border border-white/8 backdrop-blur-md text-center">
-              <span className="block text-2xl font-black text-emerald-400">100%</span>
-              <span className="text-[11px] font-semibold text-white/50 uppercase tracking-wider">Offline Persistence</span>
+            <div className="p-3.5 rounded-2xl bg-white border border-[#0099ff]/15 shadow-[0_8px_24px_rgba(0,153,255,0.08)] text-center">
+              <span className="block text-2xl font-black text-[#0099ff]">100%</span>
+              <span className="text-[11px] font-semibold text-[#0099ff]/50 uppercase tracking-wider">Offline Persistence</span>
             </div>
-            <div className="p-3.5 rounded-2xl bg-white/[0.04] border border-white/8 backdrop-blur-md text-center">
-              <span className="block text-2xl font-black text-purple-400">5+</span>
-              <span className="text-[11px] font-semibold text-white/50 uppercase tracking-wider">Cross-Platforms</span>
+            <div className="p-3.5 rounded-2xl bg-white border border-[#0099ff]/15 shadow-[0_8px_24px_rgba(0,153,255,0.08)] text-center">
+              <span className="block text-2xl font-black text-[#0099ff]">5+</span>
+              <span className="text-[11px] font-semibold text-[#0099ff]/50 uppercase tracking-wider">Cross-Platforms</span>
             </div>
           </div>
         </div>
@@ -501,7 +500,7 @@ const Projects = () => {
           <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
             
             {/* Category Filter Tabs */}
-            <div className="flex flex-wrap items-center justify-center gap-1.5 p-1.5 bg-[#141418] border border-white/10 rounded-2xl w-full lg:w-auto">
+            <div className="flex flex-wrap items-center justify-center gap-1.5 p-1.5 bg-white border border-[#0099ff]/15 rounded-2xl shadow-[0_8px_24px_rgba(0,153,255,0.08)] w-full lg:w-auto">
               {filterTabs.map((tab) => {
                 const isActive = selectedCategory === tab.id;
                 return (
@@ -512,13 +511,13 @@ const Projects = () => {
                       setSelectedTech(null);
                     }}
                     className={`relative px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 cursor-pointer ${
-                      isActive ? 'text-white shadow-md' : 'text-white/60 hover:text-white hover:bg-white/5'
+                      isActive ? 'text-white shadow-md' : 'text-[#0099ff]/60 hover:text-[#0099ff] hover:bg-[#0099ff]/10'
                     }`}
                   >
                     {isActive && (
                       <motion.div
                         layoutId="activeCategory"
-                        className="absolute inset-0 rounded-xl bg-[#ff2a2a] shadow-[0_0_20px_rgba(255,42,42,0.6)]"
+                        className="absolute inset-0 rounded-xl bg-[#0099ff] shadow-[0_0_20px_rgba(0,153,255,0.6)]"
                         transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}
                       />
                     )}
@@ -538,10 +537,10 @@ const Projects = () => {
                   placeholder="Filter by tech or keyword..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-[#141418] border border-white/10 focus:border-[#ff2a2a]/80 text-white placeholder-white/40 text-xs md:text-sm rounded-xl pl-9 pr-3 py-2.5 outline-none transition-colors"
+                  className="w-full bg-white border border-[#0099ff]/15 focus:border-[#0099ff]/80 text-[#0099ff] placeholder-[#0099ff]/40 text-xs md:text-sm rounded-xl pl-9 pr-3 py-2.5 outline-none transition-colors shadow-[0_8px_24px_rgba(0,153,255,0.08)]"
                 />
                 <svg
-                  className="absolute left-3 top-3 w-4 h-4 text-white/40"
+                  className="absolute left-3 top-3 w-4 h-4 text-[#0099ff]/40"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -551,7 +550,7 @@ const Projects = () => {
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery('')}
-                    className="absolute right-2.5 top-2.5 text-white/40 hover:text-white text-xs"
+                    className="absolute right-2.5 top-2.5 text-[#0099ff]/40 hover:text-[#0099ff] text-xs"
                   >
                     ✕
                   </button>
@@ -559,14 +558,14 @@ const Projects = () => {
               </div>
 
               {/* View Switcher Buttons */}
-              <div className="flex items-center bg-[#141418] border border-white/10 p-1 rounded-xl shrink-0">
+              <div className="flex items-center bg-white border border-[#0099ff]/15 p-1 rounded-xl shrink-0 shadow-[0_8px_24px_rgba(0,153,255,0.08)]">
                 <button
                   type="button"
                   onClick={() => setViewMode('bento')}
                   className={`p-2 rounded-lg text-xs font-bold transition-all ${
                     viewMode === 'bento'
-                      ? 'bg-[#ff2a2a] text-white shadow-md'
-                      : 'text-white/60 hover:text-white'
+                      ? 'bg-[#0099ff] text-white shadow-md'
+                      : 'text-[#0099ff]/60 hover:text-[#0099ff]'
                   }`}
                   title="Grid View"
                 >
@@ -579,8 +578,8 @@ const Projects = () => {
                   onClick={() => setViewMode('timeline')}
                   className={`p-2 rounded-lg text-xs font-bold transition-all ${
                     viewMode === 'timeline'
-                      ? 'bg-[#ff2a2a] text-white shadow-md'
-                      : 'text-white/60 hover:text-white'
+                      ? 'bg-[#0099ff] text-white shadow-md'
+                      : 'text-[#0099ff]/60 hover:text-[#0099ff]'
                   }`}
                   title="Timeline View"
                 >
@@ -595,7 +594,7 @@ const Projects = () => {
 
           {/* Quick Tech Tag Filters */}
           <div className="flex items-center flex-wrap gap-2 pt-1">
-            <span className="text-[11px] font-bold text-white/40 uppercase tracking-wider mr-1">
+            <span className="text-[11px] font-bold text-[#0099ff]/40 uppercase tracking-wider mr-1">
               Popular Tags:
             </span>
             {popularTechs.map((tech) => (
@@ -604,8 +603,8 @@ const Projects = () => {
                 onClick={() => setSelectedTech(selectedTech === tech ? null : tech)}
                 className={`text-xs px-2.5 py-1 rounded-lg border transition-all cursor-pointer ${
                   selectedTech === tech
-                    ? 'bg-[#ff2a2a] border-[#ff2a2a] text-white font-bold shadow-[0_0_12px_rgba(255,42,42,0.5)]'
-                    : 'bg-white/[0.04] border-white/10 text-white/70 hover:text-white hover:border-white/25'
+                    ? 'bg-[#0099ff] border-[#0099ff] text-white font-bold shadow-[0_0_12px_rgba(0,153,255,0.5)]'
+                    : 'bg-white border-[#0099ff]/15 text-[#0099ff]/70 hover:text-[#0099ff] hover:border-[#0099ff]/40'
                 }`}
               >
                 {tech}
@@ -614,7 +613,7 @@ const Projects = () => {
             {selectedTech && (
               <button
                 onClick={() => setSelectedTech(null)}
-                className="text-xs text-[#ff8080] hover:underline ml-1"
+                className="text-xs text-[#0099ff] hover:underline ml-1"
               >
                 Clear filter
               </button>
@@ -623,13 +622,13 @@ const Projects = () => {
         </div>
 
         {/* Results Counter */}
-        <div className="mb-8 flex items-center justify-between text-xs text-white/50 border-b border-white/5 pb-3">
+        <div className="mb-8 flex items-center justify-between text-xs text-[#0099ff]/50 border-b border-[#0099ff]/15 pb-3">
           <span>
-            Showing <strong className="text-white font-bold">{filteredProjects.length}</strong> of{' '}
+            Showing <strong className="text-[#0099ff] font-bold">{filteredProjects.length}</strong> of{' '}
             {projects.length} projects
           </span>
           {filteredProjects.length === 0 && (
-            <span className="text-[#ff6a6a]">No matching projects found. Try resetting filters.</span>
+            <span className="text-[#0099ff]">No matching projects found. Try resetting filters.</span>
           )}
         </div>
 
@@ -656,7 +655,7 @@ const Projects = () => {
             <div className="absolute top-0 bottom-0 left-[0.95rem] md:left-1/2 md:-translate-x-1/2 w-[3px] bg-white/10 overflow-hidden rounded-full">
               <motion.div
                 style={{ scaleY }}
-                className="absolute inset-0 origin-top bg-gradient-to-b from-[#ff2a2a] via-[#ff6a6a] to-[#ff2a2a]"
+                className="absolute inset-0 origin-top bg-gradient-to-b from-[#0099ff] via-[#0099ff] to-[#0099ff]"
               />
             </div>
 

@@ -5,7 +5,7 @@ import { skills } from '../data/portfolio';
 const R = 42;
 const C = 2 * Math.PI * R; // circumference of the progress ring
 
-// A glowing glass "skill coin" with an animated gradient progress ring.
+// A glowing "skill coin" with an animated gradient progress ring.
 const SkillCircle = ({ skill, index }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-40px' });
@@ -22,11 +22,11 @@ const SkillCircle = ({ skill, index }) => {
     >
       <div className="relative w-24 h-24 md:w-28 md:h-28">
         {/* soft glow */}
-        <div className="absolute inset-1 rounded-full bg-[#ff2a2a]/15 blur-xl group-hover:bg-[#ff2a2a]/40 transition-all duration-500" />
+        <div className="absolute inset-1 rounded-full bg-[#0099ff]/10 blur-xl group-hover:bg-[#0099ff]/30 transition-all duration-500" />
 
         {/* progress ring */}
         <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r={R} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="7" />
+          <circle cx="50" cy="50" r={R} fill="none" stroke="rgba(0,153,255,0.12)" strokeWidth="7" />
           <motion.circle
             cx="50"
             cy="50"
@@ -42,16 +42,16 @@ const SkillCircle = ({ skill, index }) => {
           />
         </svg>
 
-        {/* frosted glass center holding the icon */}
-        <div className="absolute inset-[16%] rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-sm flex items-center justify-center text-2xl md:text-3xl shadow-[inset_0_2px_10px_rgba(0,0,0,0.45)] transition-transform duration-500 group-hover:scale-110">
+        {/* white coin holding the icon */}
+        <div className="absolute inset-[16%] rounded-full bg-white border border-[#0099ff]/20 shadow-[0_10px_25px_rgba(0,153,255,0.15)] flex items-center justify-center text-2xl md:text-3xl transition-transform duration-500 group-hover:scale-110">
           {skill.icon}
         </div>
       </div>
 
-      <p className="mt-3 text-white/90 text-xs md:text-sm font-bold text-center leading-tight max-w-[7rem]">
+      <p className="mt-3 text-[#0099ff] text-xs md:text-sm font-bold text-center leading-tight max-w-[7rem]">
         {skill.name}
       </p>
-      <p className="text-[#ff6a6a] text-[11px] font-bold mt-0.5">{skill.level}%</p>
+      <p className="text-[#0099ff] text-[11px] font-bold mt-0.5">{skill.level}%</p>
     </motion.div>
   );
 };
@@ -60,21 +60,21 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="bg-[#0a0a0a] py-24 md:py-28 px-6 md:px-12 w-full relative overflow-hidden font-sans"
+      className="bg-[#fdfdfe] text-[#0099ff] py-24 md:py-28 px-6 md:px-12 w-full relative overflow-hidden font-sans"
     >
-      {/* subtle grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none" />
-      {/* red glow accents */}
-      <div className="absolute top-1/4 -right-24 w-96 h-96 bg-[#ff2a2a]/20 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 -left-24 w-96 h-96 bg-[#ff2a2a]/15 rounded-full blur-[150px] pointer-events-none" />
+      {/* subtle blue grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0099ff0d_1px,transparent_1px),linear-gradient(to_bottom,#0099ff0d_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none" />
+      {/* blue glow accents */}
+      <div className="absolute top-1/4 -right-24 w-96 h-96 bg-[#0099ff]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 -left-24 w-96 h-96 bg-[#0099ff]/10 rounded-full blur-[150px] pointer-events-none" />
 
       {/* gradient definition for the rings */}
       <svg className="absolute w-0 h-0" aria-hidden="true">
         <defs>
           <linearGradient id="skillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#8b5cf6" />
-            <stop offset="55%" stopColor="#a855f7" />
-            <stop offset="100%" stopColor="#d946ef" />
+            <stop offset="0%" stopColor="#0099ff" />
+            <stop offset="55%" stopColor="#0099ff" />
+            <stop offset="100%" stopColor="#0099ff" />
           </linearGradient>
         </defs>
       </svg>
@@ -82,13 +82,13 @@ const Skills = () => {
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Header */}
         <div data-aos="fade-up" className="mb-16 text-center">
-          <div className="inline-block border border-white/20 rounded-full px-5 py-1.5 text-sm text-white/70 font-bold mb-6 bg-white/5">
-            What I work with
+          <div className="tag-pill border-[#0099ff]/40 bg-[#0099ff]/5 text-[#0099ff] mb-6">
+            [ #SKILLS ]
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight">
-            Skills & Expertise
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#0099ff] leading-[1.1] tracking-tight">
+            Skills &amp; Expertise
           </h2>
-          <p className="text-white/60 text-base md:text-lg max-w-xl mx-auto font-medium leading-relaxed mt-5">
+          <p className="text-[#0099ff]/60 text-base md:text-lg max-w-xl mx-auto font-medium leading-relaxed mt-5">
             A toolkit refined over 3+ years of building production-grade,
             cross-platform applications.
           </p>
